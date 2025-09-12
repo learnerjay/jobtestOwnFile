@@ -39,6 +39,8 @@ public class JobController {
 	public List<JobDTO> findAll()
 	{
 		log.debug("Entering method findAll");
+		log.info("Database operation: FINDALL - findAll");
+		log.info("EXITING: findAll() method - Successfully completed");
 		return jobService.findAll();
 	}
 
@@ -58,27 +60,34 @@ public class JobController {
 	@PostMapping
 	public String createJob(@RequestBody JobDTO jobDTO)
 	{
+		log.debug("ENTERING: createJob() method");
 		String result = "";
 		try {
 			result = jobService.createJob(jobDTO);
 		} catch (Exception e) {
 			e.printStackTrace();;
+		log.error("EXCEPTION in createJob() method for no parameters: {}", e.getMessage(), e);
 		}
+		log.info("EXITING: createJob() method - Successfully completed");
 		return result;
 	}
 
 	@PutMapping
 	public void updateJob(@RequestBody JobDTO jobDTO)
 	{
+		log.debug("ENTERING: updateJob() method");
 		String testValue = "Testing my local changes";
 		testValue = "value changed, needs logging";
 
 		jobService.updateJob(jobDTO);
+	log.info("EXITING: updateJob() method - Successfully completed");
 	}
 
 	@GetMapping(value = "/search")
 	public List<JobDTO> search(@RequestParam String term, Pageable p)
 	{
+		log.debug("ENTERING: search() method");
+		log.info("EXITING: search() method - Successfully completed");
 		return searchService.searchJobsByTerm(term, p);
 	}
 
