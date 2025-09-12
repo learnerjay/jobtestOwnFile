@@ -1,0 +1,6 @@
+textarea {
+    border: none; !important
+    background-color: transparent;
+    resize: none;
+    outline: none;
+}
