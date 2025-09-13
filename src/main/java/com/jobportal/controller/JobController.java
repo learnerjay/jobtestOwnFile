@@ -39,6 +39,7 @@ public class JobController {
 	public List<JobDTO> findAll()
 	{
 		log.debug("Entering method findAll");
+		log.info("EXIT: {}.{}() - Completed - Time: {}ms - Operations: {}", "JobController", "findAll", durationMs, operationsPerformed);
 		return jobService.findAll();
 	}
 
@@ -58,27 +59,35 @@ public class JobController {
 	@PostMapping
 	public String createJob(@RequestBody JobDTO jobDTO)
 	{
+		log.info("API_ENTRY: {} {} - {}.{}() - Input: jobDTO={}", "HTTP", "/api", "JobController", "createJob", jobDTO);
 		String result = "";
 		try {
 			result = jobService.createJob(jobDTO);
 		} catch (Exception e) {
 			e.printStackTrace();;
+		log.error("EXCEPTION: {}.{}() - Error: {} - Params: jobDTO={}", "JobController", "createJob", e.getMessage(), jobDTO, e);
 		}
+		log.info("EXIT: {}.{}() - Completed - Time: {}ms - Operations: {}", "JobController", "createJob", durationMs, operationsPerformed);
 		return result;
 	}
 
 	@PutMapping
 	public void updateJob(@RequestBody JobDTO jobDTO)
 	{
+		log.info("API_ENTRY: {} {} - {}.{}() - Input: jobDTO={}", "HTTP", "/api", "JobController", "updateJob", jobDTO);
 		String testValue = "Testing my local changes";
 		testValue = "value changed, needs logging";
+log.debug("CLASS_VAR: {}.{} - Changed: {} → {}", "JobController", "testValue", oldValue, testValue);
 
 		jobService.updateJob(jobDTO);
+	log.info("EXIT: {}.{}() - Completed - Time: {}ms - Operations: {}", "JobController", "updateJob", durationMs, operationsPerformed);
 	}
 
 	@GetMapping(value = "/search")
 	public List<JobDTO> search(@RequestParam String term, Pageable p)
 	{
+		log.info("API_ENTRY: {} {} - {}.{}() - Input: term={}, p={}", "GET", "/search", "JobController", "search", term, p);
+		log.info("EXIT: {}.{}() - Completed - Time: {}ms - Operations: {}", "JobController", "search", durationMs, operationsPerformed);
 		return searchService.searchJobsByTerm(term, p);
 	}
 

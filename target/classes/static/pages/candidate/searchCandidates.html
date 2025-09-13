@@ -1,0 +1,75 @@
+
+<link rel="stylesheet" type="text/css" href="../../libs/datatable/dataTables.bootstrap5.min.css"/>
+<link rel="stylesheet" type="text/css" href="../../libs/datatable/bootstrap.min.css"/>
+
+<script type="text/javascript" src="../../libs/jquery/jquery-3.5.1.js"></script>
+
+<script type="text/javascript" src="../../libs/dataTable/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="../../libs/dataTable/dataTables.bootstrap5.min.js"></script>
+
+<script type="text/javascript" src="../../libs/rater/rater.js"></script>
+
+<table id="cndtsTable" class="table table-striped" style="width:100%">
+<thead>
+<tr>
+<th>CndtId</th>
+<th>Name</th>
+<th>Email</th>
+<th>Skills</th>
+<th>Reviews</th>
+<th>Messages</th>
+</tr>
+</thead>
+</table>
+
+<!-- Modal -->
+<div id="reviewsModal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Reviews</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+ 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="msgModal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Messages</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+ 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<link rel="stylesheet" type="text/css" href="../../css/styles.css"/>
+<script type="text/javascript" src="../../js/candidates.js"></script>
+<script>
+    $(document).ready(function () {
+    	$("#proposals").hide();
+    	loadCndtsTable();
+    });
+</script>
