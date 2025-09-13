@@ -1,0 +1,61 @@
+
+<link rel="stylesheet" type="text/css" href="../../libs/datatable/dataTables.bootstrap5.min.css"/>
+<link rel="stylesheet" type="text/css" href="../../libs/datatable/bootstrap.min.css"/>
+
+<script type="text/javascript" src="../../libs/jquery/jquery-3.5.1.js"></script>
+
+<script type="text/javascript" src="../../libs/dataTable/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="../../libs/dataTable/dataTables.bootstrap5.min.js"></script>
+
+<table id="jobsTable" class="table table-striped" style="width:100%">
+<thead>
+<tr>
+<th>JobId</th>
+<th>Title</th>
+<th>Description</th>
+<th>Posted On</th>
+<th>Proposals</th>
+</tr>
+</thead>
+</table>
+
+<!-- Modal -->
+<div id="proposalsModal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Proposals</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+                      	<table id="proposalsTable" class="table table-striped" style="width:100%">
+<thead>
+<tr>
+<th>ProposalId</th>
+<th>Bid Price</th>
+<th>Estimated Time</th>
+<th>Contact Email</th>
+<th>Contact Phone</th>
+</tr>
+</thead>
+</table>
+ 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script type="text/javascript" src="../../js/jobs.js"></script>
+<script>
+    $(document).ready(function () {
+    	$("#proposals").hide();
+    	loadJobsTable();
+    });
+</script>
